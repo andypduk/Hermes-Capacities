@@ -6,7 +6,7 @@
 
 An **MCP (Model Context Protocol) server** for [Capacities](https://capacities.io) — the AI-powered knowledge management app. Provides AI agents with tools to create, read, and manage content in Capacities spaces.
 
-Works with any MCP-compatible host: **Hermes Agent**, **Claude Desktop**, **Cursor**, **VS Code Copilot**, and others.
+Works with any MCP-compatible host: **Claude Desktop**, **Cursor**, **VS Code Copilot**, **Continue.dev**, **Hermes Agent**, and others.
 
 ## Features
 
@@ -15,7 +15,7 @@ Works with any MCP-compatible host: **Hermes Agent**, **Claude Desktop**, **Curs
 - 📝 **Daily notes** — append markdown to today's daily note
 - 📋 **List spaces** — discover all your spaces and their structures
 - 🏗️ **Zero dependencies** — pure Python stdlib, no pip install needed
-- 🔐 **Bearier token auth** — secure API key from Capacities settings
+- 🔐 **Bearer token auth** — secure API key from Capacities settings
 
 ## Quick Start
 
@@ -27,8 +27,8 @@ Open **Capacities desktop app → Settings → Capacities API → Generate Token
 
 ```bash
 # Clone
-git clone https://github.com/andydennis/hermes-capacities
-cd hermes-capacities
+git clone https://github.com/andypduk/Hermes-Capacities
+cd Hermes-Capacities
 
 # Set your token
 export CAPACITIES_API_TOKEN="your...n
@@ -40,25 +40,25 @@ The server reads JSON-RPC messages from stdin and writes responses to stdout —
 
 ### 3. Configure your MCP host
 
-**Hermes Agent:**
-```bash
-hermes mcp add capacities \
-  --command python3 \
-  --args /path/to/capacities-mcp/server.py \
-  --env CAPACITIES_API_TOKEN=<your_...n```
-
 **Claude Desktop** (`claude_desktop_config.json`):
 ```json
 {
   "mcpServers": {
     "capacities": {
       "command": "python3",
-      "args": ["/path/to/capacities-mcp/server.py"],
+      "args": ["/path/to/Hermes-Capacities/server.py"],
       "env": { "CAPACITIES_API_TOKEN": "your_token_here" }
     }
   }
 }
 ```
+
+**Hermes Agent:**
+```bash
+hermes mcp add capacities \
+  --command python3 \
+  --args /path/to/Hermes-Capacities/server.py \
+  --env CAPACITIES_API_TOKEN=<your_...ther MCP host:** point it at `python3 /path/to/server.py` with the `CAPACITIES_API_TOKEN` env var.
 
 ## Tools
 
@@ -105,7 +105,7 @@ Append markdown text to today's daily note in a space.
 
 ## Example: Daily Automation
 
-This server powers an 8am cron job that fetches weather, calendar events, tasks, and health data into your Capacities daily note. See [examples/daily-note-cron.md](examples/daily-note-cron.md) for the full setup.
+This server can be used to build a morning briefing that fetches weather, calendar events, tasks, and health data into your Capacities daily note. See [examples/daily-note-cron.md](examples/daily-note-cron.md).
 
 ## API Reference
 
@@ -122,16 +122,6 @@ The Capacities REST API (beta v0.1.0):
 **Docs:** https://docs.capacities.io/developer/api
 **OpenAPI:** https://api.capacities.io/docs
 **Auth:** Bearer token via `CAPACITIES_API_TOKEN` env var
-
-## Setup with Hermes Agent
-
-Full integration requires:
-- **MCP server** — this repo (5 tools for Capacities operations)
-- **Composio** — for Google Calendar and Google Tasks
-- **Whoop MCP** — for health data
-- **Open-Meteo** — for weather (free, no key)
-
-See the [SKILL.md](SKILL.md) for the complete Hermes skill definition.
 
 ## Requirements
 
