@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "capacities-mcp"
+version = "1.0.0"
+description = "MCP server for Capacities — AI-powered knowledge management"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+keywords = ["capacities", "mcp", "hermes", "ai", "knowledge-management"]
+
+[project.urls]
+Homepage = "https://github.com/andydennis/hermes-capacities"
+Documentation = "https://docs.capacities.io/developer/api"
+
+[project.scripts]
+capacities-mcp = "server:main"
