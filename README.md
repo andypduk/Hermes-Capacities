@@ -1,6 +1,6 @@
 # Capacities MCP Server
 
-** Capacities are working on OAUTH and this will not work. You should not be requesting access to the local URL from Capacities . Once this is available it will be updated here **
+** Capacities are working on OAUTH for the V2 API and this will not work. You should not be requesting access to the local URL from Capacities . Once this is available it will be updated here. The REST V1 API will still work **
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
