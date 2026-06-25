@@ -18,7 +18,7 @@ Works with any MCP-compatible host: **Claude Desktop**, **Cursor**, **VS Code Co
 - 📋 **List spaces** — discover all your spaces and their structures
 - 🏗️ **Zero dependencies** — pure Python stdlib, no pip install needed
 - 🔐 **Bearer token auth** — secure API key from Capacities settings
-- 🆕 **Native MCP server support** — setup scripts for Capacities' official OAuth 2.1 MCP server (10 tools, search + CRUD)
+- ✅ **OAuth 2.1 ready** — Native MCP server support scripts included (awaiting Capacities public release)
 
 ## Quick Start
 
@@ -66,23 +66,13 @@ hermes mcp add capacities \
 
 **Any other MCP host:** point it at `python3 /path/to/server.py` with the `CAPACITIES_API_TOKEN` env var.
 
-## Native MCP Server (OAuth 2.1)
+## Native MCP Server (OAuth 2.1 — Not Yet Public)
 
-Capacities also hosts an [official MCP server](https://docs.capacities.io/developer/model-context-protocol) at `https://api.capacities.io/mcp` with 10 tools including search, getObjectContent, createPage, createTask, createObjectViaMd, updateObjectViaMD, and more.
+Capacities also hosts an [official MCP server](https://docs.capacities.io/developer/model-context-protocol) at `https://api.capacities.io/mcp` with 10 tools including search, getObjectContent, createPage, createTask, and more.
 
-This server uses **OAuth 2.1 with PKCE** (separate from the REST API Bearer token). This repo includes helper scripts:
+**Note:** The OAuth 2.1 PKCE flow for the native MCP server requires the redirect URI to be allowlisted by Capacities. This is not yet publicly available — they require emailing `team@capacities.io` to register callback URLs.
 
-- **[`setup_oauth.py`](setup_oauth.py)** — interactive OAuth 2.1 PKCE setup. Registers a Dynamic Client, generates auth URL for browser authorization, exchanges code for tokens.
-- **[`refresh_oauth.py`](refresh_oauth.py)** — refreshes an expiring OAuth token. Run manually or schedule as a cron job.
-
-Usage:
-```bash
-# Complete one-time OAuth setup
-python3 setup_oauth.py
-
-# Periodic token refresh (tokens expire in 1 hour)
-python3 refresh_oauth.py
-```
+REST API V1 (this server) is the recommended approach until Capacities releases OAuth publicly.
 
 ## Tools
 
