@@ -1,5 +1,7 @@
 # Capacities MCP Server
 
+** Capacities are working on OAUTH and this will not work. You should not be requesting access to the local URL from Capacities . Once this is available it will be updated here **
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-purple.svg)](https://modelcontextprotocol.io)
